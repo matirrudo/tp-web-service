@@ -1,1 +1,43 @@
-<p>covid works!</p>
+<div class="table-dark bg-dark">
+    <form>
+        <div class="row ">
+            <div class="col-md-6 offset-md-4">
+                <div class="form-group row">
+                    <br>
+                    <label for="txtDe" class="col-md-2">País: </label>
+                    <input name="pais" class="form-control col-md-4" id="pais"[(ngModel)]="pais" >
+                </div> 
+                <button name="boton" (click)="obtenerDatoPais()" type="submit"class=" col-md-8 btn btn-primary">Buscar</button>
+                <div class="form-group row">
+                    <label name="resultado" class="col-md-2">{{this.pais01.nombre}}   </label>
+                    <label name="resultado" class="col-md-8">Confirmados: {{this.pais01.confirmados}} recuperados:{{this.pais01.confirmados}} Fallecidos:{{this.pais01.confirmados}}</label>
+                </div> 
+            </div>
+        </div>
+    </form>
+</div>
+<div class="bg-dark">
+    <br>
+    <h4 class="text-center text-white">Estadisticas</h4>
+<div class="table-responsive">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Ubicacion</th>
+                <th>Casos confirmados</th>
+                <th>Curados</th>
+                <th>Fallecidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pais of resultados">
+                <td>{{pais['Country_text']}}</td>
+                <td>{{pais['Total Cases_text']}}</td>
+                <td>{{pais['Total Recovered_text']}}</td>
+                <td>{{pais['Total Deaths_text']}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>

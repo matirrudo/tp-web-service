@@ -1,1 +1,109 @@
-<p>cotizacion works!</p>
+<div class="row bg-dark">
+    <section class=" d-none d-sm-none d-md-block col-md-8" >
+        <div class="card bg-dark text-white">
+            <div class="card-header text-center">
+                <h4>Cotizacion de Divisas</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>USD</th>
+                            <th>EUR</th>
+                            <th>ARS</th>
+                            <th>BRL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th rowspan="2" >1 USD</th>
+                            <td class="text-info">1</td>   
+                            <td>{{monedas[0]['result']}}</td>
+                            <td>{{monedas[1]['result']}}</td>
+                            <td>{{monedas[2]['result']}}</td>
+                        </tr>
+                        <tr>
+                            <td class="text-info">1</td>
+                            <td>{{monedas[3]['result']}}</td>
+                            <td>{{monedas[4]['result']}}</td>
+                            <td>{{monedas[5]['result']}}</td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" >1 EUR</th>
+                            <td>{{monedas[6]['result']}}</td>   
+                            <td class="text-info">1</td>
+                            <td>{{monedas[7]['result']}}</td>
+                            <td>{{monedas[8]['result']}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{monedas[9]['result']}}</td>
+                            <td class="text-info">1</td>
+                            <td>{{monedas[10]['result']}}</td>
+                            <td>{{monedas[11]['result']}}</td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2" >1 ARS</th>
+                            <td>{{monedas[12]['result']}}</td>   
+                            <td>{{monedas[13]['result']}}</td>
+                            <td class="text-info">1</td>
+                            <td>{{monedas[14]['result']}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{monedas[1]['result']}}</td>
+                            <td>{{monedas[7]['result']}}</td>
+                            <td class="text-info">1</td>
+                            <td>{{monedas[15]['result']}}</td>
+                        </tr>   
+                        <tr>
+                            <th rowspan="2" >1 BRL</th>
+                            <td>{{monedas[5]['result']}}</td>   
+                            <td>{{monedas[11]['result']}}</td>
+                            <td>{{monedas[14]['result']}}</td>
+                            <td class="text-info">1</td>
+                        </tr>
+                        <tr>
+                            <td>{{monedas[2]['result']}}</td>
+                            <td>{{monedas[8]['result']}}</td>
+                            <td>{{monedas[14]['result']}}</td>
+                            <td class="text-info">1</td>
+                        </tr>   
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <aside class="col-md-4 col-sm-12">
+        <div class="card bg-dark text-white">
+            <div class="card-header text-center conversor">
+                <h4>Conversor de Divisas</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="txtcCntidad">Cantidad</label>
+                        <input name="fromValue" [(ngModel)]="fromValue" type="number" class="form-control form-control-sm" id="txtCantidad"
+                            placeholder="Cantidad">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtDe">De</label>
+                        <select name="from" [(ngModel)]="fromType" class="form-control form-control-sm">
+                            <option [value]="item" *ngFor="let item of listaDivisa">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtA">A</label>
+                        <select name="to" [(ngModel)]="toType" class="form-control form-control-sm">
+                            <option [value]="item" *ngFor="let item of listaDivisa">{{item}}</option>
+                        </select>
+                    </div>
+                    <button name="convertir" type="submit" (click)="convertirMoneda()" class="col-sm-12 btn btn-info btn-sm" >Convertir <i
+                        class="fas fa-arrow-right"></i></button>
+                    <div class="form-group">
+                        <label for="txtA">Resultado: {{currency.result| currency:toType}}</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </aside>
+ </div>
